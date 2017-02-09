@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Football Score Keeper</string>
+    <string name="barcelona">Barcelona</string>
+    <string name="real_madrid">Real Madrid</string>
+    <string name="events">Match Summary</string>
+</resources>

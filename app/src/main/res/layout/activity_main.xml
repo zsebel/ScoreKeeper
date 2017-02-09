@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context="com.example.android.footballscorekeeper.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/display_background_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="-55dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/champions_leage_bg" />
+
+        <ImageView
+            android:id="@+id/display_teams_background_iw"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="90dp"
+            android:src="@drawable/bg_02_dark" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/display_teams_background_iw"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/timer_bg" />
+
+        <TextView
+            android:id="@+id/timer"
+            style="@style/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="155dp"
+            android:text="00:00" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="62dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:scaleType="centerInside"
+                android:src="@drawable/barcelona_200px" />
+
+            <TextView
+                style="@style/team_names"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/barcelona" />
+
+            <TextView
+                android:id="@+id/teamA_score"
+                style="@style/scores"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0" />
+
+            <TextView
+                style="@style/scores"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/teamB_score"
+                style="@style/scores"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0" />
+
+            <TextView
+                style="@style/team_names"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/real_madrid" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_weight="4"
+                android:scaleType="centerInside"
+                android:src="@drawable/real_madrid_logo_200px" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/display_background_image_view"
+            android:layout_marginBottom="14dp"
+            android:layout_marginLeft="16dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/events" />
+
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/myTable"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/display_background_image_view"
+            android:layout_marginTop="-5dp">
+
+            <TableRow>
+
+                <TextView
+                    style="@style/table_subheaders"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:background="@drawable/gradient"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="1st Half" />
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/myTable"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/goalTeamA_button"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/soccer_ball_button_small" />
+
+                <Button
+                    android:id="@+id/goalTeamA_yellow_card"
+                    android:layout_width="27dp"
+                    android:layout_height="65dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="12dp"
+                    android:background="@drawable/yellow_card_button_small" />
+
+                <Button
+                    android:id="@+id/goalTeamA_red_card"
+                    android:layout_width="34dp"
+                    android:layout_height="65dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/red_card_button_small" />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/reset_button_small"
+                android:onClick="reset" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/goalTeamB_red_card"
+                    android:layout_width="34dp"
+                    android:layout_height="65dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="12dp"
+                    android:background="@drawable/red_card_button_small" />
+
+                <Button
+                    android:id="@+id/goalTeamB_yellow_card"
+                    android:layout_width="27dp"
+                    android:layout_height="65dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/yellow_card_button_small" />
+
+                <Button
+                    android:id="@+id/goalTeamB_button"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/soccer_ball_button_small" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>
