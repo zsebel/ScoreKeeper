@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -116,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
             millis = System.currentTimeMillis() - startTime;
-            seconds = (int) (millis / 1000) * 60;
+            seconds = (int) (millis / 1000) * 900;
             minutes = seconds / 60;
             seconds = seconds % 60;
 
@@ -132,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
                 addHeader("");
                 timerHandler.removeCallbacks(timerRunnable);
                 removeOnClickListeners();
+                createToastMessage("Match ended!");
             }
             }
         };
@@ -340,7 +343,7 @@ public class MainActivity extends AppCompatActivity {
                 if (barcelona.size() < 7) {
                     timerHandler.removeCallbacks(timerRunnable);
                     removeOnClickListeners();
-                    hasNotEnoughPlayers = true;
+                    createToastMessage("Match ended!\n Not enough Barcelona players!");
                 }
             }
 
@@ -368,17 +371,23 @@ public class MainActivity extends AppCompatActivity {
                 if (realMadrid.size() < 7) {
                     timerHandler.removeCallbacks(timerRunnable);
                     removeOnClickListeners();
-                    hasNotEnoughPlayers = true;
+                    createToastMessage("Match ended!\n Not enough Real Madrid players!");
                 }
             }
         }
 
         addTableRow(String.valueOf(minutes), resID, player, scoreString, team);
         refreshScore();
+    }
 
-        if (hasNotEnoughPlayers) {
-            addHeader("Game ended!");
-        }
+    /** Creates a Toast message.
+     *
+     * @param text Takes a String as the message.
+     */
+    private void createToastMessage(String text) {
+        Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
     }
 
     private class MyOnClickListener implements View.OnClickListener {
