@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
     private int seconds;
     private int minutes;
     private boolean isAdded = false;
-    private boolean hasNotEnoughPlayers = false;
     private int rowCounter;
 
     @Override
@@ -118,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
             millis = System.currentTimeMillis() - startTime;
-            seconds = (int) (millis / 1000) * 900;
+            seconds = (int) (millis / 1000) * 60;
             minutes = seconds / 60;
             seconds = seconds % 60;
 
@@ -190,7 +189,6 @@ public class MainActivity extends AppCompatActivity {
         cleanTable();
         addOnClickListeners();
         isAdded = false;
-        hasNotEnoughPlayers = false;
         startTime = System.currentTimeMillis();
         timerHandler.postDelayed(timerRunnable, 0);
     }
@@ -339,12 +337,12 @@ public class MainActivity extends AppCompatActivity {
                 barcelona.remove(player);
                 resID = res.getIdentifier("red_card", "drawable", this.getPackageName());
                 scoreString = "";
+            }
 
-                if (barcelona.size() < 7) {
-                    timerHandler.removeCallbacks(timerRunnable);
-                    removeOnClickListeners();
-                    createToastMessage("Match ended!\n Not enough Barcelona players!");
-                }
+            if (barcelona.size() < 7) {
+                timerHandler.removeCallbacks(timerRunnable);
+                removeOnClickListeners();
+                createToastMessage("Match ended!\n Not enough Barcelona players!");
             }
 
         } else if (team.equals("realmadrid")) {
@@ -367,12 +365,12 @@ public class MainActivity extends AppCompatActivity {
                 realMadrid.remove(player);
                 resID = res.getIdentifier("red_card", "drawable", this.getPackageName());
                 scoreString = "";
+            }
 
-                if (realMadrid.size() < 7) {
-                    timerHandler.removeCallbacks(timerRunnable);
-                    removeOnClickListeners();
-                    createToastMessage("Match ended!\n Not enough Real Madrid players!");
-                }
+            if (realMadrid.size() < 7) {
+                timerHandler.removeCallbacks(timerRunnable);
+                removeOnClickListeners();
+                createToastMessage("Match ended!\n Not enough Real Madrid players!");
             }
         }
 
